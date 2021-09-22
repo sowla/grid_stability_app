@@ -4,7 +4,7 @@ In [my Kaggle notebook](https://www.kaggle.com/sowlarn/predicting-smart-grid-sta
 
 I then created [a simple streamlit app](https://share.streamlit.io/sowla/grid_stability_app/main/grid_stability.py) that can be used to see how adjusting model inputs affect the resulting predictions:
 
-![](img/app.png)
+![streamlit app screenshot](img/app.png)
 
 
 This repo contains the source code.

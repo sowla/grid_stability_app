@@ -1,0 +1,18 @@
+# based on readme at https://github.com/ricardochaves/python-lint
+
+name: Python Lint
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ricardochaves/python-lint@v1.4.0
+      with:
+        python-root-list: "grid_stability.py"
+        use-pylint: false
+        use-pycodestyle: false
+        use-flake8: false
+        use-black: true
+        use-mypy: false
+        use-isort: false
