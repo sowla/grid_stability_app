@@ -4,16 +4,26 @@ import pandas as pd
 import pickle
 
 
-### intro ###
+# intro --------------------
 """
 # Grid Stability Prediction App
-In [my Kaggle notebook](https://www.kaggle.com/sowlarn/predicting-smart-grid-stability/), I used UCI's simulated [Electrical Grid Stability data](https://archive.ics.uci.edu/ml/datasets/Electrical+Grid+Stability+Simulated+Data+) to predict if a given combination of power system conditions would result in an unstable grid - and therefore risk causing blackouts or damaging equipment.
+
+In [my Kaggle notebook](https://www.kaggle.com/sowlarn/predicting-smart-grid-stability/), I used UCI's simulated
+[Electrical Grid Stability data](https://archive.ics.uci.edu/ml/datasets/Electrical+Grid+Stability+Simulated+Data+)
+to predict if a given combination of power system conditions would result in an unstable grid -
+and therefore risk causing blackouts or damaging equipment.
+
 This simple app can be used to see how adjusting model inputs affect the resulting predictions.
-As shown in [my data exploration](https://www.kaggle.com/sowlarn/predicting-smart-grid-stability/#quick-eda), in the simulated conditions, lowering the response delays and willingness to adapt generally stabilises the grid - but this is not always the case. For example, increasing the producer willingness to adapt from the default settings of this app will *increase* stability. In this way, such an app could be used to explore possible solutions while incorporating financial and/or technical restrictions.
+
+As shown in [my data exploration](https://www.kaggle.com/sowlarn/predicting-smart-grid-stability/#quick-eda), in the
+simulated conditions, lowering the response delays and willingness to adapt generally stabilises the grid - but this
+is not always the case. For example, increasing the producer willingness to adapt from the default settings of this app
+will *increase* stability. In this way, such an app could be used to explore possible solutions while incorporating
+financial and/or technical restrictions.
 """
 
 
-### side bar ###
+# side bar --------------------
 def add_input_set(
     feature: str,
     min_value: float,
@@ -53,7 +63,7 @@ with st.sidebar:
 input_df = p_delay_df.join(c_delay_df).join(p_adapt_df).join(c_adapt_df)
 
 
-### results ###
+# results --------------------
 st.subheader("Grid condition summary:")
 st.write(input_df)
 
@@ -70,3 +80,9 @@ st.markdown(f"Best classifier's prediction: **{stability_dict.get(clf_pred)}**")
 st.markdown(
     f"Best regressor's prediction: {round(reg_pred, 3)} (**{stability_dict.get(int(reg_pred < 0))}**)"
 )
+
+
+# seems to only work when written separately
+"  \n"
+"  \n"
+"""You can find the source code [here](https://github.com/sowla/grid_stability_app)."""
