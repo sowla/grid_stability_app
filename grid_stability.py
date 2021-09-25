@@ -1,7 +1,8 @@
-from typing import List
-import streamlit as st
-import pandas as pd
 import pickle
+from typing import List
+
+import pandas as pd
+import streamlit as st
 
 
 ### intro ###

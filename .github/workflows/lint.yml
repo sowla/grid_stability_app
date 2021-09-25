@@ -1,7 +1,9 @@
 # see options at https://github.com/ricardochaves/python-lint/blob/master/action.yml
 
-name: Python Lint
+name: Python lint
+
 on: [push, pull_request]
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -9,11 +11,22 @@ jobs:
     - uses: actions/checkout@v1
     - uses: ricardochaves/python-lint@v1.4.0
       with:
-        python-root-list: "grid_stability.py"
+        python-root-list: "*.py"
+        
+        # flake8 options: https://flake8.pycqa.org/en/latest/user/options.html
+        # E203 and W503 conflicts with black
+        # https://black.readthedocs.io/en/stable/faq.html#why-are-flake8-s-e203-and-w503-violated
         use-flake8: true
-        extra-flake8-options: --max-line-length 120
+        extra-flake8-options: --max-line-length 120  --ignore=E266,E203,W503
+        
+        # black options: https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html
         use-black: true
+        extra-black-options: --diff --color
+        
+        # isort options https://pycqa.github.io/isort/docs/configuration/options.html
+        use-isort: true
+        extra-isort-options: --lai 2
+        
         use-pycodestyle: false
         use-pylint: false
         use-mypy: false
-        use-isort: false
