@@ -4,7 +4,7 @@ import pandas as pd
 import pickle
 
 
-# intro --------------------
+### intro ###
 """
 # Grid Stability Prediction App
 
@@ -23,7 +23,7 @@ financial and/or technical restrictions.
 """
 
 
-# side bar --------------------
+### side bar ###
 def add_input_set(
     feature: str,
     min_value: float,
@@ -31,6 +31,11 @@ def add_input_set(
     value: float,
     node_names: List[str],
 ):
+    assert len(node_names) > 0, "At least one string required in `node_names` list."
+    assert all(
+        [name != "" for name in node_names]
+    ), "Names in `node_names` list can't be empty strings."
+
     inputs = [
         st.slider(node_name, min_value, max_value, value) for node_name in node_names
     ]
@@ -63,7 +68,7 @@ with st.sidebar:
 input_df = p_delay_df.join(c_delay_df).join(p_adapt_df).join(c_adapt_df)
 
 
-# results --------------------
+### results ###
 st.subheader("Grid condition summary:")
 st.write(input_df)
 
@@ -83,6 +88,9 @@ st.markdown(
 
 
 # seems to only work when written separately
-"  \n"
-"  \n"
-"""You can find the source code [here](https://github.com/sowla/grid_stability_app)."""
+st.write("  \n")
+st.write("  \n")
+st.write(
+    """You can find the source code as well as the associated tests
+and github actions [here](https://github.com/sowla/grid_stability_app)."""
+)

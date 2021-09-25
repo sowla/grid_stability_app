@@ -11,7 +11,7 @@ that can be used to see how adjusting model inputs affect the resulting predicti
 ![streamlit app screenshot](img/app.png)
 
 
-This repo contains the source code.
+This repo contains the source code as well as the associated tests and github actions.
 
 </br>
 
