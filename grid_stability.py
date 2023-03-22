@@ -48,7 +48,7 @@ def add_input_set(
 with st.sidebar:
     st.header("Grid conditions")
 
-    with st.beta_expander("Response delay", expanded=False):
+    with st.expander("Response delay", expanded=False):
         st.write(
             "How long it takes for each node to adapt their production or consumption in seconds:"
         )
@@ -57,7 +57,7 @@ with st.sidebar:
             "c_delay", 0.5, 10.0, 5.0, ["Consumer1", "Consumer2", "Consumer3"]
         )
 
-    with st.beta_expander("Willingness to adapt", expanded=True):
+    with st.expander("Willingness to adapt", expanded=True):
         st.write(
             "Willingness of each node to adapt their consumption or production per second:"
         )
