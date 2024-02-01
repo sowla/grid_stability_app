@@ -1,7 +1,7 @@
-streamlit==1.20.0
+streamlit==1.30.0
 pandas==1.5.3
 pickleshare==0.7.5
-scikit-learn==0.24.1
+scikit-learn==1.0.1
 lightgbm==3.2.1
 pytest==7.2.2
 protobuf~=3.19.0
